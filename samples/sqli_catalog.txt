@@ -1,0 +1,134 @@
+Proteus Payload Catalog (Education-Only)
+Schema        : proteus.payloads.v1
+Exported at   : 2026-02-20T12:53:59.451219+00:00
+Total entries : 5
+========================================================================
+
+[1] Blind SQLi (Boolean-Based) (mysql) - Template
+------------------------------------------------------------------------
+Module      : sqli
+Created at  : 2026-02-20T12:53:59.451144+00:00
+Risk Level  : medium
+Disabled    : Yes
+DB Type     : mysql
+Tags        : blind, boolean-based, db:mysql, education-only, non-executing
+
+Description:
+Concept: response differences reveal true/false evaluation even without visible errors.
+
+Payload Template (Non-Executing Marker):
+<<SQLI_TEMPLATE: BLIND_BOOLEAN | DB=mysql | NON_EXECUTING>>
+
+Defensive Notes:
+Education-only (non-executing).
+- Enforce consistent responses.
+- Use parameterized queries.
+- Avoid logic branching on raw user input.
+- MySQL/MariaDB: disable verbose errors in production.
+- Monitor slow query log and restrict SUPER/FILE privileges.
+- Integrate SAST/DAST and code review for query construction.
+
+========================================================================
+
+[2] Blind SQLi (Time-Based) (mysql) - Template
+------------------------------------------------------------------------
+Module      : sqli
+Created at  : 2026-02-20T12:53:59.451156+00:00
+Risk Level  : medium
+Disabled    : Yes
+DB Type     : mysql
+Tags        : blind, db:mysql, education-only, non-executing, time-based
+
+Description:
+Concept: response latency may indicate conditional execution.
+
+Payload Template (Non-Executing Marker):
+<<SQLI_TEMPLATE: BLIND_TIME | DB=mysql | NON_EXECUTING>>
+
+Defensive Notes:
+Education-only (non-executing).
+- Set DB query time limits.
+- Monitor abnormal latency patterns.
+- Use parameterization everywhere.
+- MySQL/MariaDB: disable verbose errors in production.
+- Monitor slow query log and restrict SUPER/FILE privileges.
+- Integrate SAST/DAST and code review for query construction.
+
+========================================================================
+
+[3] Error-Based SQLi (mysql) - Template
+------------------------------------------------------------------------
+Module      : sqli
+Created at  : 2026-02-20T12:53:59.451086+00:00
+Risk Level  : high
+Disabled    : Yes
+DB Type     : mysql
+Tags        : db:mysql, education-only, error-based, non-executing
+
+Description:
+Concept: database error messages may leak query structure when input is concatenated into SQL statements.
+
+Payload Template (Non-Executing Marker):
+<<SQLI_TEMPLATE: ERROR_BASED | DB=mysql | NON_EXECUTING>>
+
+Defensive Notes:
+Education-only (non-executing).
+- Root cause: dynamic SQL string construction.
+- Use parameterized queries / prepared statements.
+- Suppress detailed DB errors in production.
+- MySQL/MariaDB: disable verbose errors in production.
+- Monitor slow query log and restrict SUPER/FILE privileges.
+- Integrate SAST/DAST and code review for query construction.
+
+========================================================================
+
+[4] Filter Evasion Concepts (Comments / Case) (mysql) - Template
+------------------------------------------------------------------------
+Module      : sqli
+Created at  : 2026-02-20T12:53:59.451167+00:00
+Risk Level  : low
+Disabled    : Yes
+DB Type     : mysql
+Tags        : bypass-concepts, db:mysql, education-only, non-executing
+
+Description:
+Concept: naive keyword filters fail against case changes or token splitting.
+
+Payload Template (Non-Executing Marker):
+<<SQLI_TEMPLATE: BYPASS_CONCEPTS | DB=mysql | NON_EXECUTING>>
+
+Defensive Notes:
+Education-only (non-executing).
+- Do not rely on regex keyword filtering.
+- Use parameterized queries as primary defense.
+- MySQL/MariaDB: disable verbose errors in production.
+- Monitor slow query log and restrict SUPER/FILE privileges.
+- Integrate SAST/DAST and code review for query construction.
+
+========================================================================
+
+[5] Union-Based SQLi (mysql) - Template
+------------------------------------------------------------------------
+Module      : sqli
+Created at  : 2026-02-20T12:53:59.451126+00:00
+Risk Level  : high
+Disabled    : Yes
+DB Type     : mysql
+Tags        : db:mysql, education-only, non-executing, union-based
+
+Description:
+Concept: attacker-controlled input may alter SELECT queries to combine additional result sets.
+
+Payload Template (Non-Executing Marker):
+<<SQLI_TEMPLATE: UNION_BASED | DB=mysql | NON_EXECUTING>>
+
+Defensive Notes:
+Education-only (non-executing).
+- Use parameterized queries.
+- Apply least-privilege DB roles.
+- Avoid direct string interpolation in SQL.
+- MySQL/MariaDB: disable verbose errors in production.
+- Monitor slow query log and restrict SUPER/FILE privileges.
+- Integrate SAST/DAST and code review for query construction.
+
+========================================================================

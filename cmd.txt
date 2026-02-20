@@ -1,0 +1,140 @@
+Proteus Payload Catalog (Education-Only)
+Schema        : proteus.payloads.v1
+Exported at   : 2026-02-20T13:01:39.414084+00:00
+Total entries : 5
+========================================================================
+
+[1] Command Chaining Concept (linux) - Template
+------------------------------------------------------------------------
+Module      : cmd
+Created at  : 2026-02-20T13:01:39.414025+00:00
+Risk Level  : high
+Disabled    : Yes
+OS Type     : linux
+Tags        : chaining-concept, cmd-injection, education-only, non-executing, os:linux
+
+Description:
+Concept: dynamic command building may enable chained execution paths.
+
+Payload Template (Non-Executing Marker):
+<<CMD_TEMPLATE: CHAINING_CONCEPT | OS=linux | NON_EXECUTING>>
+
+Defensive Notes:
+Education-only (non-executing).
+- Avoid dynamic command construction.
+- Enforce strict input validation.
+- Avoid shell=True patterns in process spawning.
+- Prefer exec-style APIs with argument arrays (argv).
+- Apply strict allow-lists for user-controlled parameters.
+- Apply least privilege to service accounts.
+- Prefer SDK/library APIs over invoking shell utilities.
+
+========================================================================
+
+[2] Command Injection (Basic Concept) (linux) - Template
+------------------------------------------------------------------------
+Module      : cmd
+Created at  : 2026-02-20T13:01:39.413976+00:00
+Risk Level  : high
+Disabled    : Yes
+OS Type     : linux
+Tags        : basic-concept, cmd-injection, education-only, non-executing, os:linux
+
+Description:
+Concept: untrusted input influencing system command construction may alter execution flow.
+
+Payload Template (Non-Executing Marker):
+<<CMD_TEMPLATE: BASIC_CONCEPT | OS=linux | NON_EXECUTING>>
+
+Defensive Notes:
+Education-only (non-executing).
+- Root cause: concatenating user input into shell commands.
+- Primary defense: avoid shell invocation entirely.
+- Avoid shell=True patterns in process spawning.
+- Prefer exec-style APIs with argument arrays (argv).
+- Apply strict allow-lists for user-controlled parameters.
+- Apply least privilege to service accounts.
+- Prefer SDK/library APIs over invoking shell utilities.
+
+========================================================================
+
+[3] Command Separator Concept (linux) - Template
+------------------------------------------------------------------------
+Module      : cmd
+Created at  : 2026-02-20T13:01:39.414012+00:00
+Risk Level  : high
+Disabled    : Yes
+OS Type     : linux
+Tags        : cmd-injection, education-only, non-executing, os:linux, separator-concept
+
+Description:
+Concept: shell parsing rules may interpret separators as command boundaries.
+
+Payload Template (Non-Executing Marker):
+<<CMD_TEMPLATE: SEPARATOR_CONCEPT | OS=linux | NON_EXECUTING>>
+
+Defensive Notes:
+Education-only (non-executing).
+- Do not rely on character blacklists.
+- Use structured execution (argv arrays), not shell parsing.
+- Avoid shell=True patterns in process spawning.
+- Prefer exec-style APIs with argument arrays (argv).
+- Apply strict allow-lists for user-controlled parameters.
+- Apply least privilege to service accounts.
+- Prefer SDK/library APIs over invoking shell utilities.
+
+========================================================================
+
+[4] Filter Evasion Concepts (linux) - Template
+------------------------------------------------------------------------
+Module      : cmd
+Created at  : 2026-02-20T13:01:39.414034+00:00
+Risk Level  : medium
+Disabled    : Yes
+OS Type     : linux
+Tags        : bypass-concepts, cmd-injection, education-only, non-executing, os:linux
+
+Description:
+Concept: naive filtering may fail across encodings and shell behaviors.
+
+Payload Template (Non-Executing Marker):
+<<CMD_TEMPLATE: FILTER_EVASION_CONCEPTS | OS=linux | NON_EXECUTING>>
+
+Defensive Notes:
+Education-only (non-executing).
+- Architectural prevention > keyword filtering.
+- Add sandboxing and least privilege.
+- Avoid shell=True patterns in process spawning.
+- Prefer exec-style APIs with argument arrays (argv).
+- Apply strict allow-lists for user-controlled parameters.
+- Apply least privilege to service accounts.
+- Prefer SDK/library APIs over invoking shell utilities.
+
+========================================================================
+
+[5] OS Detection Logic Concept (linux) - Template
+------------------------------------------------------------------------
+Module      : cmd
+Created at  : 2026-02-20T13:01:39.414043+00:00
+Risk Level  : low
+Disabled    : Yes
+OS Type     : linux
+Tags        : cmd-injection, education-only, non-executing, os-detection, os:linux
+
+Description:
+Concept: behavioral differences may reveal underlying OS type.
+
+Payload Template (Non-Executing Marker):
+<<CMD_TEMPLATE: OS_DETECTION_LOGIC | OS=linux | NON_EXECUTING>>
+
+Defensive Notes:
+Education-only (non-executing).
+- Avoid exposing platform details.
+- Do not return raw command output.
+- Avoid shell=True patterns in process spawning.
+- Prefer exec-style APIs with argument arrays (argv).
+- Apply strict allow-lists for user-controlled parameters.
+- Apply least privilege to service accounts.
+- Prefer SDK/library APIs over invoking shell utilities.
+
+========================================================================

@@ -1,0 +1,132 @@
+{
+  "count": 5,
+  "exported_at": "2026-02-20T12:40:49.851895+00:00",
+  "payloads": [
+    {
+      "context": null,
+      "created_at": "2026-02-20T12:40:49.839707+00:00",
+      "db_type": null,
+      "defensive_notes": "Education-only (non-executing).\n- Avoid dynamic command construction.\n- Enforce strict input validation.\n- Avoid shell=True patterns in process spawning.\n- Prefer exec-style APIs with argument arrays (argv).\n- Apply strict allow-lists for user-controlled parameters.\n- Apply least privilege to service accounts.\n- Prefer SDK/library APIs over invoking shell utilities.\n",
+      "description": "Concept: dynamic command building may enable chained execution paths.",
+      "disabled_by_default": true,
+      "encoding_applied": [],
+      "id": "49964bea-e729-466c-9009-2bd449a52d46",
+      "module": "cmd",
+      "obfuscation_applied": [
+        "mixed"
+      ],
+      "os_type": "linux",
+      "payload": "<<CM/*OBF*/D_T/*OBF*/EM/*OBF*/PLAT/*OBF*/E: \t CHAINING_CONCEPT/*OBF*/ \t | \t OS=li/*OBF*/nux \t | \t NON_EXECUT/*OBF*/ING>>",
+      "risk_level": "high",
+      "tags": [
+        "cmd-injection",
+        "chaining-concept",
+        "education-only",
+        "non-executing",
+        "os:linux"
+      ],
+      "title": "Command Chaining Concept (linux) - Template"
+    },
+    {
+      "context": null,
+      "created_at": "2026-02-20T12:40:49.839295+00:00",
+      "db_type": null,
+      "defensive_notes": "Education-only (non-executing).\n- Root cause: concatenating user input into shell commands.\n- Primary defense: avoid shell invocation entirely.\n- Avoid shell=True patterns in process spawning.\n- Prefer exec-style APIs with argument arrays (argv).\n- Apply strict allow-lists for user-controlled parameters.\n- Apply least privilege to service accounts.\n- Prefer SDK/library APIs over invoking shell utilities.\n",
+      "description": "Concept: untrusted input influencing system command construction may alter execution flow.",
+      "disabled_by_default": true,
+      "encoding_applied": [],
+      "id": "427d03db-172c-4cb4-bb6f-86fe1573c2f4",
+      "module": "cmd",
+      "obfuscation_applied": [
+        "mixed"
+      ],
+      "os_type": "linux",
+      "payload": "<<CM/*OBF*/D_T/*OBF*/EM/*OBF*/PLAT/*OBF*/E: \t BASIC_CONCEPT/*OBF*/ \t | \t OS=li/*OBF*/nux \t | \t NON_EXECUT/*OBF*/ING>>",
+      "risk_level": "high",
+      "tags": [
+        "cmd-injection",
+        "basic-concept",
+        "education-only",
+        "non-executing",
+        "os:linux"
+      ],
+      "title": "Command Injection (Basic Concept) (linux) - Template"
+    },
+    {
+      "context": null,
+      "created_at": "2026-02-20T12:40:49.839675+00:00",
+      "db_type": null,
+      "defensive_notes": "Education-only (non-executing).\n- Do not rely on character blacklists.\n- Use structured execution (argv arrays), not shell parsing.\n- Avoid shell=True patterns in process spawning.\n- Prefer exec-style APIs with argument arrays (argv).\n- Apply strict allow-lists for user-controlled parameters.\n- Apply least privilege to service accounts.\n- Prefer SDK/library APIs over invoking shell utilities.\n",
+      "description": "Concept: shell parsing rules may interpret separators as command boundaries.",
+      "disabled_by_default": true,
+      "encoding_applied": [],
+      "id": "d8539490-cdec-4229-a520-da662096ef0d",
+      "module": "cmd",
+      "obfuscation_applied": [
+        "mixed"
+      ],
+      "os_type": "linux",
+      "payload": "<<CM/*OBF*/D_T/*OBF*/EM/*OBF*/PLAT/*OBF*/E: \t SEPARAT/*OBF*/OR_CONCEPT/*OBF*/ \t | \t OS=li/*OBF*/nux \t | \t NON_EXECUT/*OBF*/ING>>",
+      "risk_level": "high",
+      "tags": [
+        "cmd-injection",
+        "separator-concept",
+        "education-only",
+        "non-executing",
+        "os:linux"
+      ],
+      "title": "Command Separator Concept (linux) - Template"
+    },
+    {
+      "context": null,
+      "created_at": "2026-02-20T12:40:49.839726+00:00",
+      "db_type": null,
+      "defensive_notes": "Education-only (non-executing).\n- Architectural prevention > keyword filtering.\n- Add sandboxing and least privilege.\n- Avoid shell=True patterns in process spawning.\n- Prefer exec-style APIs with argument arrays (argv).\n- Apply strict allow-lists for user-controlled parameters.\n- Apply least privilege to service accounts.\n- Prefer SDK/library APIs over invoking shell utilities.\n",
+      "description": "Concept: naive filtering may fail across encodings and shell behaviors.",
+      "disabled_by_default": true,
+      "encoding_applied": [],
+      "id": "01870e82-69a8-4461-82db-a1771930f828",
+      "module": "cmd",
+      "obfuscation_applied": [
+        "mixed"
+      ],
+      "os_type": "linux",
+      "payload": "<<CM/*OBF*/D_T/*OBF*/EM/*OBF*/PLAT/*OBF*/E: \t F/*OBF*/ILT/*OBF*/ER_EVASION_CONCEPT/*OBF*/S \t | \t OS=li/*OBF*/nux \t | \t NON_EXECUT/*OBF*/ING>>",
+      "risk_level": "medium",
+      "tags": [
+        "cmd-injection",
+        "bypass-concepts",
+        "education-only",
+        "non-executing",
+        "os:linux"
+      ],
+      "title": "Filter Evasion Concepts (linux) - Template"
+    },
+    {
+      "context": null,
+      "created_at": "2026-02-20T12:40:49.839743+00:00",
+      "db_type": null,
+      "defensive_notes": "Education-only (non-executing).\n- Avoid exposing platform details.\n- Do not return raw command output.\n- Avoid shell=True patterns in process spawning.\n- Prefer exec-style APIs with argument arrays (argv).\n- Apply strict allow-lists for user-controlled parameters.\n- Apply least privilege to service accounts.\n- Prefer SDK/library APIs over invoking shell utilities.\n",
+      "description": "Concept: behavioral differences may reveal underlying OS type.",
+      "disabled_by_default": true,
+      "encoding_applied": [],
+      "id": "7a7a3730-d948-428e-896a-509fcbe0a245",
+      "module": "cmd",
+      "obfuscation_applied": [
+        "mixed"
+      ],
+      "os_type": "linux",
+      "payload": "<<CM/*OBF*/D_T/*OBF*/EM/*OBF*/PLAT/*OBF*/E: \t OS_DET/*OBF*/ECT/*OBF*/ION_LOGIC \t | \t OS=li/*OBF*/nux \t | \t NON_EXECUT/*OBF*/ING>>",
+      "risk_level": "low",
+      "tags": [
+        "cmd-injection",
+        "os-detection",
+        "education-only",
+        "non-executing",
+        "os:linux"
+      ],
+      "title": "OS Detection Logic Concept (linux) - Template"
+    }
+  ],
+  "schema": "proteus.payloads.v1"
+}

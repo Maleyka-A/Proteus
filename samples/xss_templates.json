@@ -1,0 +1,51 @@
+{
+  "count": 2,
+  "exported_at": "2026-02-20T12:09:17.027081+00:00",
+  "payloads": [
+    {
+      "context": "html",
+      "created_at": "2026-02-20T12:09:17.026961+00:00",
+      "db_type": null,
+      "defensive_notes": "Education-only template (non-executing).\n- Root cause: reflecting user input into HTML without encoding.\n- Defenses: contextual output encoding (HTML), safe templating/auto-escaping, CSP.\n- WAFs may detect signatures, but correct output encoding is the core fix.",
+      "description": "Demonstrates reflected XSS risk when untrusted input is placed into the HTML body without proper contextual output encoding.",
+      "disabled_by_default": true,
+      "encoding_applied": [],
+      "id": "71c94f6d-093c-4168-96e6-4a8eecebf959",
+      "module": "xss",
+      "obfuscation_applied": [],
+      "os_type": null,
+      "payload": "<<XSS_TEMPLATE: REFLECTED | CONTEXT=html | SINK=HTML_BODY>>",
+      "risk_level": "medium",
+      "tags": [
+        "reflected",
+        "context:html",
+        "education-only",
+        "non-executing"
+      ],
+      "title": "Reflected XSS (HTML context) - Template"
+    },
+    {
+      "context": "html",
+      "created_at": "2026-02-20T12:09:17.027002+00:00",
+      "db_type": null,
+      "defensive_notes": "Education-only template (non-executing).\n- Stored XSS can affect many users because the payload is persisted.\n- Defenses: encode at render time, input normalization/validation, CSP.\n- Ensure consistent escaping across all render paths.",
+      "description": "Demonstrates stored XSS concept: input is persisted and later rendered into HTML body.",
+      "disabled_by_default": true,
+      "encoding_applied": [],
+      "id": "eae14f53-5b11-400e-a65b-4aef6395647f",
+      "module": "xss",
+      "obfuscation_applied": [],
+      "os_type": null,
+      "payload": "<<XSS_TEMPLATE: STORED | CONTEXT=html | SOURCE=persisted_input | SINK=HTML_BODY>>",
+      "risk_level": "high",
+      "tags": [
+        "stored",
+        "context:html",
+        "education-only",
+        "non-executing"
+      ],
+      "title": "Stored XSS (HTML context) - Template"
+    }
+  ],
+  "schema": "proteus.payloads.v1"
+}

@@ -1,0 +1,129 @@
+{
+  "count": 5,
+  "exported_at": "2026-02-20T12:37:07.299860+00:00",
+  "payloads": [
+    {
+      "context": null,
+      "created_at": "2026-02-20T12:37:07.299676+00:00",
+      "db_type": "mysql",
+      "defensive_notes": "Education-only (non-executing).\n- Enforce consistent responses.\n- Use parameterized queries.\n- Avoid logic branching on raw user input.\n- MySQL/MariaDB: disable verbose errors in production.\n- Monitor slow query log and restrict SUPER/FILE privileges.\n- Integrate SAST/DAST and code review for query construction.\n",
+      "description": "Concept: response differences reveal true/false evaluation even without visible errors.",
+      "disabled_by_default": true,
+      "encoding_applied": [
+        "base64"
+      ],
+      "id": "0a132aa4-fa48-4de9-ac05-981715b912bb",
+      "module": "sqli",
+      "obfuscation_applied": [],
+      "os_type": null,
+      "payload": "PDxTUUxJX1RFTVBMQVRFOiBCTElORF9CT09MRUFOIHwgREI9bXlzcWwgfCBOT05fRVhFQ1VUSU5HPj4=",
+      "risk_level": "medium",
+      "tags": [
+        "blind",
+        "boolean-based",
+        "education-only",
+        "non-executing",
+        "db:mysql"
+      ],
+      "title": "Blind SQLi (Boolean-Based) (mysql) - Template"
+    },
+    {
+      "context": null,
+      "created_at": "2026-02-20T12:37:07.299686+00:00",
+      "db_type": "mysql",
+      "defensive_notes": "Education-only (non-executing).\n- Set DB query time limits.\n- Monitor abnormal latency patterns.\n- Use parameterization everywhere.\n- MySQL/MariaDB: disable verbose errors in production.\n- Monitor slow query log and restrict SUPER/FILE privileges.\n- Integrate SAST/DAST and code review for query construction.\n",
+      "description": "Concept: response latency may indicate conditional execution.",
+      "disabled_by_default": true,
+      "encoding_applied": [
+        "base64"
+      ],
+      "id": "af5f14c2-fa54-4ee6-ac65-daad20db70c2",
+      "module": "sqli",
+      "obfuscation_applied": [],
+      "os_type": null,
+      "payload": "PDxTUUxJX1RFTVBMQVRFOiBCTElORF9USU1FIHwgREI9bXlzcWwgfCBOT05fRVhFQ1VUSU5HPj4=",
+      "risk_level": "medium",
+      "tags": [
+        "blind",
+        "time-based",
+        "education-only",
+        "non-executing",
+        "db:mysql"
+      ],
+      "title": "Blind SQLi (Time-Based) (mysql) - Template"
+    },
+    {
+      "context": null,
+      "created_at": "2026-02-20T12:37:07.299626+00:00",
+      "db_type": "mysql",
+      "defensive_notes": "Education-only (non-executing).\n- Root cause: dynamic SQL string construction.\n- Use parameterized queries / prepared statements.\n- Suppress detailed DB errors in production.\n- MySQL/MariaDB: disable verbose errors in production.\n- Monitor slow query log and restrict SUPER/FILE privileges.\n- Integrate SAST/DAST and code review for query construction.\n",
+      "description": "Concept: database error messages may leak query structure when input is concatenated into SQL statements.",
+      "disabled_by_default": true,
+      "encoding_applied": [
+        "base64"
+      ],
+      "id": "288b2d32-ab13-44df-a613-1e78d8988551",
+      "module": "sqli",
+      "obfuscation_applied": [],
+      "os_type": null,
+      "payload": "PDxTUUxJX1RFTVBMQVRFOiBFUlJPUl9CQVNFRCB8IERCPW15c3FsIHwgTk9OX0VYRUNVVElORz4+",
+      "risk_level": "high",
+      "tags": [
+        "error-based",
+        "education-only",
+        "non-executing",
+        "db:mysql"
+      ],
+      "title": "Error-Based SQLi (mysql) - Template"
+    },
+    {
+      "context": null,
+      "created_at": "2026-02-20T12:37:07.299695+00:00",
+      "db_type": "mysql",
+      "defensive_notes": "Education-only (non-executing).\n- Do not rely on regex keyword filtering.\n- Use parameterized queries as primary defense.\n- MySQL/MariaDB: disable verbose errors in production.\n- Monitor slow query log and restrict SUPER/FILE privileges.\n- Integrate SAST/DAST and code review for query construction.\n",
+      "description": "Concept: naive keyword filters fail against case changes or token splitting.",
+      "disabled_by_default": true,
+      "encoding_applied": [
+        "base64"
+      ],
+      "id": "0de4d72f-cc16-4609-8cef-959deb6b7846",
+      "module": "sqli",
+      "obfuscation_applied": [],
+      "os_type": null,
+      "payload": "PDxTUUxJX1RFTVBMQVRFOiBCWVBBU1NfQ09OQ0VQVFMgfCBEQj1teXNxbCB8IE5PTl9FWEVDVVRJTkc+Pg==",
+      "risk_level": "low",
+      "tags": [
+        "bypass-concepts",
+        "education-only",
+        "non-executing",
+        "db:mysql"
+      ],
+      "title": "Filter Evasion Concepts (Comments / Case) (mysql) - Template"
+    },
+    {
+      "context": null,
+      "created_at": "2026-02-20T12:37:07.299661+00:00",
+      "db_type": "mysql",
+      "defensive_notes": "Education-only (non-executing).\n- Use parameterized queries.\n- Apply least-privilege DB roles.\n- Avoid direct string interpolation in SQL.\n- MySQL/MariaDB: disable verbose errors in production.\n- Monitor slow query log and restrict SUPER/FILE privileges.\n- Integrate SAST/DAST and code review for query construction.\n",
+      "description": "Concept: attacker-controlled input may alter SELECT queries to combine additional result sets.",
+      "disabled_by_default": true,
+      "encoding_applied": [
+        "base64"
+      ],
+      "id": "15efc0aa-047e-4b00-8fd2-35e309343d42",
+      "module": "sqli",
+      "obfuscation_applied": [],
+      "os_type": null,
+      "payload": "PDxTUUxJX1RFTVBMQVRFOiBVTklPTl9CQVNFRCB8IERCPW15c3FsIHwgTk9OX0VYRUNVVElORz4+",
+      "risk_level": "high",
+      "tags": [
+        "union-based",
+        "education-only",
+        "non-executing",
+        "db:mysql"
+      ],
+      "title": "Union-Based SQLi (mysql) - Template"
+    }
+  ],
+  "schema": "proteus.payloads.v1"
+}
