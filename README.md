@@ -181,56 +181,56 @@ Offline catalog export:
 │   └── test_pipeline.py
 └── pyproject.toml
 ```
-#Installation
+# Installation
 ```
 git clone https://github.com/Maleyka-A/Proteus
 cd Proteus
 ```
-###Create a virtual environment:
+### Create a virtual environment:
 ```
 python -m venv venv
 source venv/bin/activate
 ```
-###Run the CLI:
+### Run the CLI:
 ```
 python main.py --version
 ```
-###If installed as a console script:
+### If installed as a console script:
 ```
 proteus --version
 ```
-##CLI Usage
-###Basic syntax:
+## CLI Usage
+### Basic syntax:
 ```
 python main.py generate [options]
 ```
-###XSS Example:
+### XSS Example:
 ```
 python main.py generate --module xss --context html
 ```
-###SQL Injection Example:
+### SQL Injection Example:
 ```
 python main.py generate --module sqli --db mysql
 ```
-###Command Injection Example:
+### Command Injection Example:
 ```
 python main.py generate --module cmd --os linux
 ```
 ---
-##Encoding (Representation Only)
+## Encoding (Representation Only)
 Supported encodings: url,base64,hex.
 ```
 python main.py generate --module xss --context html --encode base64
 ```
 ---
-##Obfuscation (Education-Only Guardrails)
+## Obfuscation (Education-Only Guardrails)
 Supported modes: comment, whitespace,mixed.
 Obfuscation is restricted to educational template markers.
 ```
 python main.py generate --module xss --context html --obfuscate mixed
 ```
 ---
-##Exporting
+## Exporting
 JSON Export
 ```
 python main.py generate --module xss --context html --export json --output samples/output.json
@@ -240,12 +240,12 @@ TXT Export
 python main.py generate --module sqli --db mysql --export txt --output samples/output.txt
 ```
 ---
-##Metadata
+## Metadata
 ```
 python main.py generate --module xss --context html --export json --meta author=dark run_id=123
 ```
 ---
-##Testing
+## Testing
 ```
 pytest -v
 ```
@@ -257,7 +257,7 @@ Coverage includes:
 - Pipeline orchestration
 - Error handling
 ---
-##Safety Principles
+## Safety Principles
 Proteus is intentionally constrained:
 - All outputs are marker-based templates
 - _disabled_by_default=True_ is enforced at model and export layers
@@ -267,5 +267,5 @@ Proteus is intentionally constrained:
 - No automatic request sending
 The framework is designed for defensive learning and architectural clarity.
 ---
-##Author
-Maleyka Aghayeva
+## Author
+MALEYKA AGHAYEVA
