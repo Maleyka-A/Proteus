@@ -268,4 +268,4 @@ Proteus is intentionally constrained:
 The framework is designed for defensive learning and architectural clarity.
 ---
 ## Author
-MALEYKA AGHAYEVA
+**Maleyka Aghayeva**
