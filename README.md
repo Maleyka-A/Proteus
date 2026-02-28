@@ -26,7 +26,7 @@ All outputs are structured string templates intended strictly for:
 - Defensive research  
 - Security training environments  
 
-This project aligns with OWASP ethical standards and internship task scope requirements :contentReference[oaicite:0]{index=0}.
+This project aligns with OWASP ethical standards and internship task scope requirements.
 
 ---
 
@@ -54,9 +54,10 @@ Generates template markers demonstrating:
 - DOM-based XSS concepts  
 
 Supported contexts:
-- html
-- attr
-- js
+
+- html  
+- attr  
+- js  
 
 All templates include defensive guidance and are non-executing by design.
 
@@ -72,9 +73,10 @@ Generates structured templates for:
 - Filter evasion concepts (case/comment behavior explanation)
 
 Supported database selectors:
-- mysql
-- postgres
-- mssql
+
+- mysql  
+- postgres  
+- mssql  
 
 No database interaction is performed.
 
@@ -90,8 +92,9 @@ Generates conceptual templates for:
 - OS detection logic concepts  
 
 Supported OS selectors:
-- linux
-- windows
+
+- linux  
+- windows  
 
 All command patterns are marker-based and disabled by default.
 
@@ -99,10 +102,12 @@ All command patterns are marker-based and disabled by default.
 
 ## Architecture Overview
 
-Proteus is structured with clear separation of responsibilities:
+Proteus is structured with clear separation of responsibilities.
 
 ### core/models.py
+
 Strongly validated `PayloadTemplate` model:
+
 - Module-specific selector enforcement  
 - Risk level classification  
 - Tagging support  
@@ -111,202 +116,156 @@ Strongly validated `PayloadTemplate` model:
 - Export-safe serialization methods  
 
 ### core/registry.py
+
 Decorator-based plugin system:
+
 - Dynamic module registration  
 - Selector validation  
 - Type enforcement for generator outputs  
 
 ### core/pipeline.py
+
 Execution orchestration:
+
 1. Template generation  
 2. Optional encoding  
 3. Optional obfuscation  
 4. Optional export  
 
 ### transforms/
+
 Representation-only transformations:
+
 - Encoding: url, base64, hex  
 - Obfuscation: comments, whitespace, mixed  
 
 Obfuscation is restricted to explicit educational templates containing marker identifiers.
 
 ### exporters/
+
 Offline catalog export:
+
 - JSON exporter (schema wrapper, deterministic ordering, atomic write)  
 - TXT exporter (human-readable catalog, atomic write)  
 
 ---
 
 ## Project Structure
+
+```bash
 .
 ├── cli.py
 ├── config.py
 ├── core/
-│ ├── models.py
-│ ├── pipeline.py
-│ └── registry.py
+│   ├── models.py
+│   ├── pipeline.py
+│   └── registry.py
 ├── modules/
-│ ├── xss.py
-│ ├── sqli.py
-│ └── cmd_injection.py
+│   ├── xss.py
+│   ├── sqli.py
+│   └── cmd_injection.py
 ├── transforms/
-│ ├── encoder.py
-│ └── obfuscator.py
+│   ├── encoder.py
+│   └── obfuscator.py
 ├── exporters/
-│ ├── json_exporter.py
-│ └── txt_exporter.py
+│   ├── json_exporter.py
+│   └── txt_exporter.py
 ├── docs/
-│ ├── ETHICS.md
-│ └── USAGE.md
+│   ├── ETHICS.md
+│   └── USAGE.md
 ├── tests/
-│ ├── test_cli.py
-│ ├── test_encoder.py
-│ ├── test_exporters.py
-│ ├── test_modules.py
-│ └── test_pipeline.py
+│   ├── test_cli.py
+│   ├── test_encoder.py
+│   ├── test_exporters.py
+│   ├── test_modules.py
+│   └── test_pipeline.py
 └── pyproject.toml
-
-
-
----
-
-## Installation
-
-Clone the repository:
-
-```bash
+```
+#Installation
+```
 git clone https://github.com/Maleyka-A/Proteus
 cd Proteus
-
-Create a virtual environment:
-
+```
+###Create a virtual environment:
+```
 python -m venv venv
 source venv/bin/activate
-
-Run the CLI:
-
+```
+###Run the CLI:
+```
 python main.py --version
-
-If installed as a console script:
-
+```
+###If installed as a console script:
+```
 proteus --version
-CLI Usage
-
-Basic syntax:
-
+```
+##CLI Usage
+###Basic syntax:
+```
 python main.py generate [options]
-XSS Example
+```
+###XSS Example:
+```
 python main.py generate --module xss --context html
-SQL Injection Example
+```
+###SQL Injection Example:
+```
 python main.py generate --module sqli --db mysql
-Command Injection Example
+```
+###Command Injection Example:
+```
 python main.py generate --module cmd --os linux
-Encoding (Representation Only)
-python main.py generate \
-  --module xss \
-  --context html \
-  --encode base64
-
-Supported encodings:
-
-url
-
-base64
-
-hex
-
-Obfuscation (Education-Only Guardrails)
-python main.py generate \
-  --module xss \
-  --context html \
-  --obfuscate mixed
-
-Supported modes:
-
-comments
-
-whitespace
-
-mixed
-
+```
+---
+##Encoding (Representation Only)
+Supported encodings: url,base64,hex.
+```
+python main.py generate --module xss --context html --encode base64
+```
+---
+##Obfuscation (Education-Only Guardrails)
+Supported modes: comment, whitespace,mixed.
 Obfuscation is restricted to educational template markers.
-
-Exporting
+```
+python main.py generate --module xss --context html --obfuscate mixed
+```
+---
+##Exporting
 JSON Export
-python main.py generate \
-  --module xss \
-  --context html \
-  --export json \
-  --output samples/output.json
-
-Features:
-
-Schema wrapper (proteus.payloads.v1)
-
-Deterministic ordering
-
-Atomic file writing
-
-Optional metadata
-
+```
+python main.py generate --module xss --context html --export json --output samples/output.json
+```
 TXT Export
-python main.py generate \
-  --module sqli \
-  --db mysql \
-  --export txt \
-  --output samples/output.txt
-Metadata
-
-Optional metadata may be attached:
-
-python main.py generate \
-  --module xss \
-  --context html \
-  --export json \
-  --meta author=dark run_id=123
-Testing
-
-Run the full test suite:
-
+```
+python main.py generate --module sqli --db mysql --export txt --output samples/output.txt
+```
+---
+##Metadata
+```
+python main.py generate --module xss --context html --export json --meta author=dark run_id=123
+```
+---
+##Testing
+```
 pytest -v
-
+```
 Coverage includes:
-
-CLI validation
-
-Encoding correctness
-
-Export safety enforcement
-
-Module selector validation
-
-Pipeline orchestration
-
-Error handling
-
-Safety Principles
-
+- CLI validation
+- Encoding correctness
+- Export safety enforcement
+- Module selector validation
+- Pipeline orchestration
+- Error handling
+---
+##Safety Principles
 Proteus is intentionally constrained:
-
-All outputs are marker-based templates
-
-disabled_by_default=True is enforced at model and export layers
-
-No dynamic execution (eval, exec)
-
-No subprocess invocation
-
-No HTTP or database clients
-
-No automatic request sending
-
+- All outputs are marker-based templates
+- _disabled_by_default=True_ is enforced at model and export layers
+- No dynamic execution (eval, exec)
+- No subprocess invocation
+- No HTTP or database clients
+- No automatic request sending
 The framework is designed for defensive learning and architectural clarity.
-
-License
-
-MIT License
-
-Author
-
+---
+##Author
 Maleyka Aghayeva
-
